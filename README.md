@@ -2,6 +2,8 @@
 
 --------------------setup--------------------
 
+clone repository onto each machine
+
 edit beacon.py 
   - add C2server IP Address in manager function
 
