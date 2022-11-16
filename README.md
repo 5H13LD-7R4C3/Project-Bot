@@ -1,1 +1,14 @@
 # Project-Bot
+
+--------------------setup--------------------
+edit beacon.py 
+  - add C2server IP Address in managerfunction
+
+edit slave.py
+  - add beacon IP Address
+  
+--------------------running botnet--------------------
+
+Use command 'python3 C2server.py' on a command server or vm
+Use command 'python3 beacon.py' on a relay server or vm
+Use command 'python3 slave.py' on slave server/s or vm/s
