@@ -1,6 +1,7 @@
 # Project-Bot
 
 --------------------setup--------------------
+
 edit beacon.py 
   - add C2server IP Address in managerfunction
 
