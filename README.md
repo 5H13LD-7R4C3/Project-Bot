@@ -3,7 +3,7 @@
 --------------------setup--------------------
 
 edit beacon.py 
-  - add C2server IP Address in managerfunction
+  - add C2server IP Address in manager function
 
 edit slave.py
   - add beacon IP Address
