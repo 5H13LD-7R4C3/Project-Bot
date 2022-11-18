@@ -11,8 +11,7 @@ def createDatabase():
 
 # Create a table for bots
   c.execute("""CREATE TABLE bots(
-    id text,
-    bot_name text,
+    id int AUTO INCREMENT,
     bot_ip text
 
   )""")
@@ -22,8 +21,8 @@ def createDatabase():
 
 # Create a table for entry relay
   c.execute("""CREATE TABLE relay(
-    id text,
-    relay_name text,
+    id int AUTO INCREMENT,
+  
     relay_ip text
 
   )""")
@@ -33,7 +32,7 @@ def createDatabase():
 
 # Create a table
   c.execute("""CREATE TABLE targets(
-    id text,
+    id int AUTO INCREMENT,
     target_name text,
     target_ip text
     vuln_rating int
@@ -45,3 +44,5 @@ def createDatabase():
 
 # Close connection
   conn.close()
+
+#createDatabase()
