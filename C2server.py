@@ -1,6 +1,11 @@
 import socket
 import threading
 import json
+from DatabaseSetup import createDatabase
+
+# Build Database
+createDatabase()
+
 
 conn_list={}
 def server():
